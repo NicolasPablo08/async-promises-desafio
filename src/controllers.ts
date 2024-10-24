@@ -7,9 +7,11 @@ export class ContactsControllerOptions {
 
 class ContactsController {
   contacts: ContactsCollection;
+  promesa: Promise<any>; //tipo Promise viene acompañado de otro tipo, que es la respuesta de la promesa
   constructor() {
     this.contacts = new ContactsCollection();
-    this.contacts.load();
+    const promesa = this.contacts.load();
+    this.promesa = promesa;
   }
   processOptions(options: ContactsControllerOptions) {
     var resultado;
